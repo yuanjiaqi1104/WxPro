@@ -1,4 +1,5 @@
 var postsData = require("../../../data/posts-data.js");
+var app = getApp();
 Page({
 
   /**
@@ -13,6 +14,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // var globalData = app.globalData;
     var postId = options.id;
     this.setData({
       currentPostId: postId
@@ -43,6 +45,36 @@ Page({
       wx.setStorageSync("posts_collected", postsCollected);
 
     }
+
+    // 全局变量确定播放状态
+    if (app.globalData.g_isPlayingMusic){
+      this.setData({
+        isPlayingMusic:true
+      })
+    }
+    this.setMusicMonitor();
+
+
+  },
+
+  // 监听播放状态
+  setMusicMonitor:function(){
+      var that = this;
+      wx.onBackgroundAudioPlay(function () {
+        that.setData({
+          isPlayingMusic: true
+        });
+        // 修改全局保存音乐播放状态
+        app.globalData.g_isPlayingMusic = true;
+      })
+
+      wx.onBackgroundAudioPause(function () {
+        that.setData({
+          isPlayingMusic: false
+        });
+        // 修改全局保存音乐播放状态
+        app.globalData.g_isPlayingMusic = false;
+      })
 
   },
 
