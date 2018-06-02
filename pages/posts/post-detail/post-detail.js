@@ -47,7 +47,7 @@ Page({
     }
 
     // 全局变量确定播放状态
-    if (app.globalData.g_isPlayingMusic){
+    if (app.globalData.g_isPlayingMusic && app.globalData.g_currentMusicPostId == postId){
       this.setData({
         isPlayingMusic:true
       })
@@ -66,6 +66,7 @@ Page({
         });
         // 修改全局保存音乐播放状态
         app.globalData.g_isPlayingMusic = true;
+        app.globalData.g_currentMusicPostId = that.data.currentPostId;
       })
 
       wx.onBackgroundAudioPause(function () {
@@ -74,6 +75,7 @@ Page({
         });
         // 修改全局保存音乐播放状态
         app.globalData.g_isPlayingMusic = false;
+        app.globalData.g_currentMusicPostId = null
       })
 
   },

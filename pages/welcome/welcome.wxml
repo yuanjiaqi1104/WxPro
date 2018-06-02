@@ -1,5 +1,5 @@
 <view class='container'>
-   <!-- <image src="{{txSrc}}"></image> -->
+  <!-- <image src="{{txSrc}}"></image> -->
    <open-data class='user-avater' type="userAvatarUrl"></open-data>
   <open-data class="user-name" type="userNickName"></open-data>
    <view class='moto-container' bindtap="onTap">

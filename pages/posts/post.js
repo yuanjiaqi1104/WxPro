@@ -16,10 +16,19 @@ Page({
       postKey: postsData.postList
     })
   },
+  // 内容列表点击
   onPostTap:function(event){
     var postId=event.currentTarget.dataset.postid;
     wx.navigateTo({
       url: 'post-detail/post-detail?id='+postId
     })
-  }
+  },
+
+  // 轮播点击
+  onSwiperTap: function (event){
+      var postId = event.target.dataset.postid;
+      wx.navigateTo({
+        url: 'post-detail/post-detail?id=' + postId
+      })
+   }
 })

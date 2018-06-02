@@ -4,29 +4,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userName:'主人',
-    txSrc:'/images/avatar/4.png'
-  },
-  onTap:function(){
-      // wx.navigateTo({
-      //   url: '../posts/post',
-      //   success:function(res){
-
-      //   },
-      //   fail:function(res){
-
-      //   },
-      // })
-      wx.navigateTo({
-        url: '../posts/post'
-      });
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+    
   },
 
   /**
